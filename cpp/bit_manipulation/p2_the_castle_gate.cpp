@@ -1,3 +1,7 @@
+/*
+Find unordered pairs of distinct integers from 1 to N whose
+bit-wise XOR does not exceed N
+*/
 #include <iostream>
 using namespace std;
 
