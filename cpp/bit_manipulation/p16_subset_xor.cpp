@@ -1,3 +1,7 @@
+/*
+Given a set S. Generate T, a set that contains all
+subsets of S minus the null set and calculate A, XOR sum of the set T. 
+*/
 #include <iostream>
 using namespace std;
 
