@@ -19,15 +19,14 @@ int main(){
 
 int is_bubbly(string word){
 	int w_len = word.length();
-	if((w_len%2)!=0){
-		return(0);
-	}
 	stack <char> s;
 	for(int i=0; i<w_len; i++){
 		if(s.empty()){
 			s.push(word[i]);
 		}else if(s.top() == word[i]){
 			s.pop();
+		}else{
+			s.push(word[i]);
 		}
 	}
 	if(!s.empty()){
