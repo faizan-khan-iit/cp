@@ -1,12 +1,14 @@
+// Graph implementation using Adjacency List without any libraries with proper node deletion
 #include <iostream>
 using namespace std;
 
+// Define Node data type for Adjacency List
 struct Node{
-	int data = 0;
-	Node* next = nullptr;
+	int data = 0;          // Stores the node to which a node in a graph is connected
+	Node* next = nullptr;  // Link to next node
 };
 
-Node* head_arr[1000] = {nullptr};
+Node* head_arr[1000] = {nullptr};  // Stores head pointers of all graph nodes. Nodes in graph start from 1
 Node* getNewNode(int data_i);      // Gives a pointer to a new adjacency list node
 int add_edge_in_graph(int from_node, int to_node);
 int remove_edge_from_graph(int from_node, int to_node);
@@ -61,6 +63,8 @@ Node* getNewNode(int data_i){
 	return(temp);
 }
 
+
+// Insert a new edge in graph from node A to B
 int add_edge_in_graph(int from_node, int to_node){
     if(edge_exists(from_node, to_node)){
         cout << "An edge already exists between " << from_node << " ---> " << to_node << endl;
@@ -73,6 +77,7 @@ int add_edge_in_graph(int from_node, int to_node){
 }
 
 
+// Remove an edge from node A to B
 int remove_edge_from_graph(int from_node, int to_node){
 	Node* temp1 = nullptr;
 	Node* temp2 = nullptr;
@@ -100,6 +105,7 @@ int remove_edge_from_graph(int from_node, int to_node){
 		temp1 = temp1->next;
 	}
 
+    // Could not find edge to delete
 	if(!edge_deleted){
 		cout << endl << "Edge from node " << from_node << " to node " << to_node << " does not exist" << endl;
 		return 1;
@@ -130,10 +136,12 @@ int printGraph(int till_node){
     return 0;
 }
 
-
+// Returns true if an edge exists from A to B
 bool edge_exists(int from_node, int to_node){
     Node* temp = nullptr;
     temp = head_arr[from_node];
+
+    // Empty list
     if(temp == nullptr){
         return(false);
     }

@@ -84,7 +84,8 @@ int add_edge_in_graph(int from_node, int to_node){
 }
 
 
-// Removes an egde from the graph
+// Remove an edge from node A to B
+// Node is not actually deleted. Just reassigned to 0
 int remove_edge_from_graph(int from_node, int to_node){
     Node* temp = nullptr;
     temp = head_arr[from_node];
